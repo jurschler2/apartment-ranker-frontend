@@ -46,7 +46,7 @@ export const verifyToken = async () => {
   setAuthHeader();
 
   let res = await axios.get(`${AUTH_BASE_URL}/confirm`)
-  if (res.status === "confirmed") {
+  if (res.data.status === "confirmed") {
     return true;
   } else {
     localStorage.removeItem("_apartmentRankerToken")
