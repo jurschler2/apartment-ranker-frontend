@@ -22,6 +22,8 @@ const useAPI = (apiCallback, param = null) => {
     const getData = async () => {
       const response = await apiCallback(param);
 
+      console.log("This is the response:", response)
+
       if (mounted) {
         (response.status === "error" || response.data?.status === "invalid")
           ? setError(response.message)
