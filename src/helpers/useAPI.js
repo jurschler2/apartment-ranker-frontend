@@ -23,7 +23,7 @@ const useAPI = (apiCallback, param = null) => {
       const response = await apiCallback(param);
 
       if (mounted) {
-        response.status === "error"
+        (response.status === "error" || response.data?.status === "invalid")
           ? setError(response.message)
           : setData(response.message);
         setIsLoading(false);
